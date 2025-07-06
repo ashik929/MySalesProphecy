@@ -1,0 +1,88 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: Item_Identifier
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for each item in the dataset
+      mappings: []
+      tags: []
+  - name: Item_Weight
+    type: string
+    nullable: true
+    metadata:
+      description: Weight of the item as a string value
+      mappings: []
+      tags: []
+  - name: Item_Fat_Content
+    type: string
+    nullable: true
+    metadata:
+      description: The fat content classification of the item
+      mappings: []
+      tags: []
+  - name: Item_Visibility
+    type: string
+    nullable: true
+    metadata:
+      description: Visibility score of the item in the outlet
+      mappings: []
+      tags: []
+  - name: Item_Type
+    type: string
+    nullable: true
+    metadata:
+      description: Type of the item being sold
+      mappings: []
+      tags: []
+  - name: Item_MRP
+    type: string
+    nullable: true
+    metadata:
+      description: Maximum retail price of the item as string
+      mappings: []
+      tags: []
+  - name: Outlet_Identifier
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for each retail outlet
+      mappings: []
+      tags: []
+  - name: Outlet_Establishment_Year
+    type: string
+    nullable: true
+    metadata:
+      description: Year when the outlet was established as a string
+      mappings: []
+      tags: []
+  - name: Outlet_Size
+    type: string
+    nullable: true
+    metadata:
+      description: Size category of the outlet where the item is sold
+      mappings: []
+      tags: []
+  - name: Outlet_Location_Type
+    type: string
+    nullable: true
+    metadata:
+      description: Type of location where the outlet is situated
+      mappings: []
+      tags: []
+  - name: Outlet_Type
+    type: string
+    nullable: true
+    metadata:
+      description: Type of the retail outlet where the item is sold
+      mappings: []
+      tags: []
+  - name: Item_Outlet_Sales
+    type: string
+    nullable: true
+    metadata:
+      description: Sales amount generated from the item at the outlet
+      mappings: []
+      tags: []

@@ -1,0 +1,299 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.10.2",
+        "pyPiVersion" : "1.9.49"
+      },
+      "sparkConfigJinjaEnabled" : true
+    },
+    "id" : "1",
+    "uri" : "pipelines/Data_ingestion",
+    "sourceSuggestions" : [ {
+      "sourceLabel" : "ds_adls_source_1",
+      "sourceDatasetId" : "datasets/ds_adls_source",
+      "canJoinWith" : [ {
+        "processLabel" : "ds_source",
+        "processId" : "xpkQ10go96uASUEEPLK-Q$$NsZM6Vrxhs-L3nX6RJYDz",
+        "joinColumns" : [ "_c3" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "_c3" ],
+          "conditions" : [ {
+            "alias" : "ds_adls_source_1",
+            "expression" : "(ds_source._c3 = ds_adls_source_1.Outlet_Location_Type)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "Item_Identifier",
+            "expression" : "ds_adls_source_1.Item_Identifier"
+          }, {
+            "alias" : "Item_Weight",
+            "expression" : "ds_adls_source_1.Item_Weight"
+          }, {
+            "alias" : "Item_Fat_Content",
+            "expression" : "ds_adls_source_1.Item_Fat_Content"
+          }, {
+            "alias" : "Item_Visibility",
+            "expression" : "ds_adls_source_1.Item_Visibility"
+          }, {
+            "alias" : "Item_Type",
+            "expression" : "ds_adls_source_1.Item_Type"
+          }, {
+            "alias" : "Item_MRP",
+            "expression" : "ds_adls_source_1.Item_MRP"
+          }, {
+            "alias" : "Outlet_Identifier",
+            "expression" : "ds_adls_source_1.Outlet_Identifier"
+          }, {
+            "alias" : "Outlet_Establishment_Year",
+            "expression" : "ds_adls_source_1.Outlet_Establishment_Year"
+          }, {
+            "alias" : "Outlet_Size",
+            "expression" : "ds_adls_source_1.Outlet_Size"
+          }, {
+            "alias" : "Outlet_Type",
+            "expression" : "ds_adls_source_1.Outlet_Type"
+          }, {
+            "alias" : "Item_Outlet_Sales",
+            "expression" : "ds_adls_source_1.Item_Outlet_Sales"
+          }, {
+            "alias" : "_c2",
+            "expression" : "ds_source._c2"
+          }, {
+            "alias" : "_c5",
+            "expression" : "ds_source._c5"
+          }, {
+            "alias" : "_c4",
+            "expression" : "ds_source._c4"
+          }, {
+            "alias" : "_c1",
+            "expression" : "ds_source._c1"
+          }, {
+            "alias" : "_c0",
+            "expression" : "ds_source._c0"
+          }, {
+            "alias" : "_c3",
+            "expression" : "ds_source._c3"
+          }, {
+            "alias" : "_c6",
+            "expression" : "ds_source._c6"
+          } ],
+          "headAlias" : "datasets/ds_adls_source"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "ds_source_1",
+      "sourceDatasetId" : "datasets/ds_source",
+      "canJoinWith" : [ {
+        "processLabel" : "ds_adls_source",
+        "processId" : "9EVq29S7cp7cIxsCMHDQf$$uFjD14Yk3qqRm6xfUTFRm",
+        "joinColumns" : [ "Outlet_Location_Type" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "Outlet_Location_Type" ],
+          "conditions" : [ {
+            "alias" : "ds_source_1",
+            "expression" : "(ds_adls_source.Outlet_Location_Type = ds_source_1._c0)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "_c1",
+            "expression" : "ds_source_1._c1"
+          }, {
+            "alias" : "_c2",
+            "expression" : "ds_source_1._c2"
+          }, {
+            "alias" : "_c3",
+            "expression" : "ds_source_1._c3"
+          }, {
+            "alias" : "_c4",
+            "expression" : "ds_source_1._c4"
+          }, {
+            "alias" : "_c5",
+            "expression" : "ds_source_1._c5"
+          }, {
+            "alias" : "_c6",
+            "expression" : "ds_source_1._c6"
+          }, {
+            "alias" : "Outlet_Type",
+            "expression" : "ds_adls_source.Outlet_Type"
+          }, {
+            "alias" : "Item_Visibility",
+            "expression" : "ds_adls_source.Item_Visibility"
+          }, {
+            "alias" : "Item_MRP",
+            "expression" : "ds_adls_source.Item_MRP"
+          }, {
+            "alias" : "Outlet_Location_Type",
+            "expression" : "ds_adls_source.Outlet_Location_Type"
+          }, {
+            "alias" : "Item_Weight",
+            "expression" : "ds_adls_source.Item_Weight"
+          }, {
+            "alias" : "Item_Type",
+            "expression" : "ds_adls_source.Item_Type"
+          }, {
+            "alias" : "Item_Fat_Content",
+            "expression" : "ds_adls_source.Item_Fat_Content"
+          }, {
+            "alias" : "Item_Outlet_Sales",
+            "expression" : "ds_adls_source.Item_Outlet_Sales"
+          }, {
+            "alias" : "Outlet_Establishment_Year",
+            "expression" : "ds_adls_source.Outlet_Establishment_Year"
+          }, {
+            "alias" : "Outlet_Size",
+            "expression" : "ds_adls_source.Outlet_Size"
+          }, {
+            "alias" : "Item_Identifier",
+            "expression" : "ds_adls_source.Item_Identifier"
+          }, {
+            "alias" : "Outlet_Identifier",
+            "expression" : "ds_adls_source.Outlet_Identifier"
+          } ],
+          "headAlias" : "datasets/ds_source"
+        }
+      } ]
+    } ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "Data_ingestion",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true,
+      "sparkConfigOptions" : {
+        "disableSparkCreationTimeConfigGeneration" : true
+      }
+    },
+    "language" : "python",
+    "fabricId" : "30045",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "ashikchavan2900gmailcomteam.salesproject.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ {
+      "name" : "spark.default.parallelism",
+      "value" : "4"
+    }, {
+      "name" : "spark.sql.legacy.allowUntypedScalaUDF",
+      "value" : "true"
+    } ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "data_ingestion",
+    "configTopLevelPackage" : "data_ingestion",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ ],
+  "processes" : {
+    "xpkQ10go96uASUEEPLK-Q$$NsZM6Vrxhs-L3nX6RJYDz" : {
+      "id" : "xpkQ10go96uASUEEPLK-Q$$NsZM6Vrxhs-L3nX6RJYDz",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "ds_source",
+        "slug" : "ds_source",
+        "x" : -900,
+        "y" : -420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "vkASDSxNGy_qKRUxLFdyT$$lsHChSiHnufzZouS9mWaf",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/ds_source"
+      }
+    },
+    "9EVq29S7cp7cIxsCMHDQf$$uFjD14Yk3qqRm6xfUTFRm" : {
+      "id" : "9EVq29S7cp7cIxsCMHDQf$$uFjD14Yk3qqRm6xfUTFRm",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "ds_adls_source",
+        "slug" : "ds_adls_source",
+        "x" : -900,
+        "y" : -200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "-BV2DIRuHZ1BWWpg5f-H6$$GPcLK0E2mKR_2bxxuo6u1",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/ds_adls_source"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

@@ -1,0 +1,53 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: _c0
+    type: string
+    nullable: true
+    metadata:
+      description: First column containing string data.
+      mappings: []
+      tags: []
+  - name: _c1
+    type: string
+    nullable: true
+    metadata:
+      description: A string value representing a specific attribute in the dataset
+      mappings: []
+      tags: []
+  - name: _c2
+    type: string
+    nullable: true
+    metadata:
+      description: A string value representing a specific attribute in the dataset
+      mappings: []
+      tags: []
+  - name: _c3
+    type: string
+    nullable: true
+    metadata:
+      description: A string value representing a specific attribute in the dataset.
+      mappings: []
+      tags: []
+  - name: _c4
+    type: string
+    nullable: true
+    metadata:
+      description: A string value representing a specific attribute in the dataset
+      mappings: []
+      tags: []
+  - name: _c5
+    type: string
+    nullable: true
+    metadata:
+      description: A string value representing a specific attribute in the dataset
+      mappings: []
+      tags: []
+  - name: _c6
+    type: string
+    nullable: true
+    metadata:
+      description: A string value representing additional data in the dataset
+      mappings: []
+      tags: []
