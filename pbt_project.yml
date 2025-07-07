@@ -22,7 +22,7 @@ pipelines:
     datasets:
       inputs:
       - datasets/ds_adls_source
-      - datasets/ds_source
+      - datasets/silver_products
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -53,6 +53,32 @@ datasets:
         description: ''
         author: ashikchavan2900@gmail.com
         createdAt: '2025-07-06 18:08:07'
+  datasets/bronze_region:
+    name: bronze_region
+    description: ''
+    author: ashikchavan2900@gmail.com
+    createdAt: '2025-07-07 16:33:06'
+    mode: batch
+    physicalDatasets:
+      Development:
+        fabricId: 30045
+        datasetType: Database
+        description: ''
+        author: ashikchavan2900@gmail.com
+        createdAt: '2025-07-07 16:33:06'
+  datasets/silver_products:
+    name: silver_products
+    description: ''
+    author: ashikchavan2900@gmail.com
+    createdAt: '2025-07-07 16:35:59'
+    mode: batch
+    physicalDatasets:
+      Development:
+        fabricId: 30045
+        datasetType: Database
+        description: ''
+        author: ashikchavan2900@gmail.com
+        createdAt: '2025-07-07 16:35:59'
 templates: {}
 jobs: {}
 gemContainer:

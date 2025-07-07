@@ -1,0 +1,46 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: product_id
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for each product
+      mappings: []
+      tags: []
+  - name: product_name
+    type: string
+    nullable: true
+    metadata:
+      description: The name of the product
+      mappings: []
+      tags: []
+  - name: category
+    type: string
+    nullable: true
+    metadata:
+      description: The category to which the product belongs
+      mappings: []
+      tags: []
+  - name: brand
+    type: string
+    nullable: true
+    metadata:
+      description: The brand name of the product
+      mappings: []
+      tags: []
+  - name: price
+    type: double
+    nullable: true
+    metadata:
+      description: The selling price of the product
+      mappings: []
+      tags: []
+  - name: _rescued_data
+    type: string
+    nullable: true
+    metadata:
+      description: Additional data that was recovered related to the product
+      mappings: []
+      tags: []

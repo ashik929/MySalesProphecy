@@ -1,0 +1,25 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: region_id
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for each region
+      mappings: []
+      tags: []
+  - name: region
+    type: string
+    nullable: true
+    metadata:
+      description: Name of the geographical region
+      mappings: []
+      tags: []
+  - name: _rescued_data
+    type: string
+    nullable: true
+    metadata:
+      description: Data that has been recovered or salvaged for the region
+      mappings: []
+      tags: []
