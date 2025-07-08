@@ -22,6 +22,9 @@ pipelines:
     datasets:
       inputs:
       - datasets/ds_adls_source
+      - datasets/sample1
+      - datasets/silver_customers
+      - datasets/silver_orders
       - datasets/silver_products
       outputs: []
     subgraphs: []
@@ -79,6 +82,45 @@ datasets:
         description: ''
         author: ashikchavan2900@gmail.com
         createdAt: '2025-07-07 16:35:59'
+  datasets/sample1:
+    name: sample1
+    description: ''
+    author: ashikchavan2900@gmail.com
+    createdAt: '2025-07-08 05:36:43'
+    mode: batch
+    physicalDatasets:
+      Development:
+        fabricId: 30045
+        datasetType: File
+        description: ''
+        author: ashikchavan2900@gmail.com
+        createdAt: '2025-07-08 05:36:43'
+  datasets/silver_customers:
+    name: silver_customers
+    description: ''
+    author: ashikchavan2900@gmail.com
+    createdAt: '2025-07-08 06:18:22'
+    mode: batch
+    physicalDatasets:
+      Development:
+        fabricId: 30045
+        datasetType: Database
+        description: ''
+        author: ashikchavan2900@gmail.com
+        createdAt: '2025-07-08 06:18:22'
+  datasets/silver_orders:
+    name: silver_orders
+    description: ''
+    author: ashikchavan2900@gmail.com
+    createdAt: '2025-07-08 06:19:36'
+    mode: batch
+    physicalDatasets:
+      Development:
+        fabricId: 30045
+        datasetType: Database
+        description: ''
+        author: ashikchavan2900@gmail.com
+        createdAt: '2025-07-08 06:19:36'
 templates: {}
 jobs: {}
 gemContainer:

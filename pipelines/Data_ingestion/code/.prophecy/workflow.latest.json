@@ -15,7 +15,163 @@
     },
     "id" : "1",
     "uri" : "pipelines/Data_ingestion",
-    "sourceSuggestions" : [ ],
+    "sourceSuggestions" : [ {
+      "sourceLabel" : "silver_products_1",
+      "sourceDatasetId" : "datasets/silver_products",
+      "canJoinWith" : [ {
+        "processLabel" : "silver_customers",
+        "processId" : "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F",
+        "joinColumns" : [ "_rescued_data" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "_rescued_data" ],
+          "conditions" : [ {
+            "alias" : "silver_products_1",
+            "expression" : "(col(\"silver_customers._rescued_data\") == col(\"silver_products_1._rescued_data\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "product_id",
+            "expression" : "col(\"silver_products_1.product_id\")"
+          }, {
+            "alias" : "product_name",
+            "expression" : "col(\"silver_products_1.product_name\")"
+          }, {
+            "alias" : "category",
+            "expression" : "col(\"silver_products_1.category\")"
+          }, {
+            "alias" : "brand",
+            "expression" : "col(\"silver_products_1.brand\")"
+          }, {
+            "alias" : "price",
+            "expression" : "col(\"silver_products_1.price\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"silver_customers.email\")"
+          }, {
+            "alias" : "city",
+            "expression" : "col(\"silver_customers.city\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"silver_customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"silver_customers.first_name\")"
+          }, {
+            "alias" : "state",
+            "expression" : "col(\"silver_customers.state\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"silver_customers.customer_id\")"
+          }, {
+            "alias" : "_rescued_data",
+            "expression" : "col(\"silver_customers._rescued_data\")"
+          } ],
+          "headAlias" : "datasets/silver_products"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "silver_orders_1",
+      "sourceDatasetId" : "datasets/silver_orders",
+      "canJoinWith" : [ {
+        "processLabel" : "silver_customers",
+        "processId" : "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F",
+        "joinColumns" : [ "customer_id", "_rescued_data" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "_rescued_data" ],
+          "conditions" : [ {
+            "alias" : "silver_orders_1",
+            "expression" : "((col(\"silver_customers._rescued_data\") == col(\"silver_orders_1._rescued_data\")) & (col(\"silver_customers.customer_id\") == col(\"silver_orders_1.customer_id\")))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "col(\"silver_orders_1.order_id\")"
+          }, {
+            "alias" : "product_id",
+            "expression" : "col(\"silver_orders_1.product_id\")"
+          }, {
+            "alias" : "order_date",
+            "expression" : "col(\"silver_orders_1.order_date\")"
+          }, {
+            "alias" : "quantity",
+            "expression" : "col(\"silver_orders_1.quantity\")"
+          }, {
+            "alias" : "total_amount",
+            "expression" : "col(\"silver_orders_1.total_amount\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"silver_customers.email\")"
+          }, {
+            "alias" : "city",
+            "expression" : "col(\"silver_customers.city\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"silver_customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"silver_customers.first_name\")"
+          }, {
+            "alias" : "state",
+            "expression" : "col(\"silver_customers.state\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"silver_customers.customer_id\")"
+          }, {
+            "alias" : "_rescued_data",
+            "expression" : "col(\"silver_customers._rescued_data\")"
+          } ],
+          "headAlias" : "datasets/silver_orders"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "bronze_region",
+      "sourceDatasetId" : "datasets/bronze_region",
+      "canJoinWith" : [ {
+        "processLabel" : "silver_customers",
+        "processId" : "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F",
+        "joinColumns" : [ "_rescued_data" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "_rescued_data" ],
+          "conditions" : [ {
+            "alias" : "bronze_region",
+            "expression" : "(col(\"silver_customers._rescued_data\") == col(\"bronze_region._rescued_data\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "region_id",
+            "expression" : "col(\"bronze_region.region_id\")"
+          }, {
+            "alias" : "region",
+            "expression" : "col(\"bronze_region.region\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"silver_customers.email\")"
+          }, {
+            "alias" : "city",
+            "expression" : "col(\"silver_customers.city\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"silver_customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"silver_customers.first_name\")"
+          }, {
+            "alias" : "state",
+            "expression" : "col(\"silver_customers.state\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"silver_customers.customer_id\")"
+          }, {
+            "alias" : "_rescued_data",
+            "expression" : "col(\"silver_customers._rescued_data\")"
+          } ],
+          "headAlias" : "datasets/bronze_region"
+        }
+      } ]
+    } ],
     "pipelineSettingsInfo" : {
       "applicationName" : "Data_ingestion",
       "hasApplication" : true,
@@ -134,8 +290,114 @@
     "sourcePort" : "2FVMNfrAmZa3zGwNs6Vwk$$lP6zo_VF-4hcM6CRrwA9s",
     "target" : "rBByiayzhrElgS4HAbHTd$$Z27CocY3IdRooBwxyqiX7",
     "targetPort" : "FgzSR0lvCUUCJegsjME2y$$EoEwxq7qsuMHcQ6mL9yBq"
+  }, {
+    "id" : "yDFrgdPkkacVt0PkU9kBg$$TS4z67bJL044CwzcdU_p_",
+    "source" : "pZ-CzsCGaN73t3C9Nbo4a$$bt0V8QFDz62gOufhfysuR",
+    "sourcePort" : "o4GrVTtSXnBJ9ct23LHau$$1dngH2cfiUcyQcpOr2KiF",
+    "target" : "-qj1ZXzSdu9oBEQusnDGd$$eR8XR86FJPlFKuyK5HNFf",
+    "targetPort" : "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o"
+  }, {
+    "id" : "wg0AocN7pPmajgHdEwxiy$$4GwGcEG6RnTksBrWQESKR",
+    "source" : "-qj1ZXzSdu9oBEQusnDGd$$eR8XR86FJPlFKuyK5HNFf",
+    "sourcePort" : "HtGOT5wuxhnx0N3vCYXmy$$Y1g_v2dc_Ti0bda4Y0ZbN",
+    "target" : "uwaNlohJTUyO7IBFK8TAN$$sshSUx6ikFbU_b2zYoBXv",
+    "targetPort" : "8pduFdKMzxHN9G2jrUnFK$$4qWUWgz72r4qIomw1isV2"
+  }, {
+    "id" : "56GXhEQ8fyDL8ZstpGdrA$$xJibQ22WoPhRJbNgSFmK6",
+    "source" : "w1gtGCf_1LKTKxYjQ3siB$$fsidOaM-rg68tO0h6jgqb",
+    "sourcePort" : "ilHjO1PGdImcfEAkdfUJv$$_W-5B4jqO_9FpT-GdadN5",
+    "target" : "FcrHSLhnQubDMrUpTHz1H$$ydpz1p7am34uNTkK741Bh",
+    "targetPort" : "yCVpEo3aa0P2drCR-Yyz5$$Uegp6-Bm6TSxsaFki4zPH"
+  }, {
+    "id" : "eGTS9lKxGrNbaaJfeyORh$$KyKS266iEytk301ilHfds",
+    "source" : "FcrHSLhnQubDMrUpTHz1H$$ydpz1p7am34uNTkK741Bh",
+    "sourcePort" : "SjChYTjUtf97IPqPk6HX2$$Z5XFoxcvCJ8zov56oKBqQ",
+    "target" : "GbF-hm1lxHwv_ueHhng-a$$d_24T09uA1R8rae1oU5WL",
+    "targetPort" : "V1N2_aS7ALxa8_sRbb4xS$$_MFjVX_Xqmq-KJ3-i6xcE"
+  }, {
+    "id" : "QvyU-ENlvwpnWImeSEnbP$$Rmtc1gstckqavaKQ6A2d3",
+    "source" : "GbF-hm1lxHwv_ueHhng-a$$d_24T09uA1R8rae1oU5WL",
+    "sourcePort" : "5R9ymUF6m4913egYT4oeq$$2VyS-nrCM4LOoprd-dK7v",
+    "target" : "x2E6n5wAt1A9HGLPeocsC$$2p9-4Zo_R8buDwts9Tgm-",
+    "targetPort" : "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy"
   } ],
   "processes" : {
+    "pZ-CzsCGaN73t3C9Nbo4a$$bt0V8QFDz62gOufhfysuR" : {
+      "id" : "pZ-CzsCGaN73t3C9Nbo4a$$bt0V8QFDz62gOufhfysuR",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "sample1",
+        "slug" : "sample1",
+        "x" : -1640,
+        "y" : -180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "o4GrVTtSXnBJ9ct23LHau$$1dngH2cfiUcyQcpOr2KiF",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/sample1"
+      }
+    },
+    "ByCIpzCSor0t-gyCcyVIx$$Y_lcTk8ShrYuFiWCF7Jbu" : {
+      "id" : "ByCIpzCSor0t-gyCcyVIx$$Y_lcTk8ShrYuFiWCF7Jbu",
+      "component" : "DynamicSelect",
+      "metadata" : {
+        "label" : "DynamicSelect_1",
+        "slug" : "DynamicSelect_1",
+        "x" : -1640,
+        "y" : 300,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "uAvXWhH66wUBRmQjzTgD-$$DsUX2Tq9nmuxyrfNEbmD4",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "guJdXosYjGv6zJUFPbPqB$$Lz3sI1bVwXfu2mxnbStgD",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "structTypeChecked" : false,
+        "dateTypeChecked" : false,
+        "binaryTypeChecked" : false,
+        "strTypeChecked" : false,
+        "floatTypeChecked" : false,
+        "timestampTypeChecked" : false,
+        "boolTypeChecked" : false,
+        "customExpression" : null,
+        "longTypeChecked" : false,
+        "doubleTypeChecked" : false,
+        "intTypeChecked" : false,
+        "byteTypeChecked" : false,
+        "decimalTypeChecked" : false,
+        "selectUsing" : "SELECT_FIELD_TYPES",
+        "shortTypeChecked" : false
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/DynamicSelect",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "JY0ORPGa0rMYyY5en4klB$$2gu9jkGCwjQ6TMM-Vs0A9" : {
       "id" : "JY0ORPGa0rMYyY5en4klB$$2gu9jkGCwjQ6TMM-Vs0A9",
       "component" : "BulkColumnRename",
@@ -425,6 +687,1194 @@
       },
       "properties" : {
         "datasetId" : "datasets/silver_products"
+      }
+    },
+    "-qj1ZXzSdu9oBEQusnDGd$$eR8XR86FJPlFKuyK5HNFf" : {
+      "id" : "-qj1ZXzSdu9oBEQusnDGd$$eR8XR86FJPlFKuyK5HNFf",
+      "component" : "FlattenSchema",
+      "metadata" : {
+        "label" : "normalize_account_schema",
+        "slug" : "normalize_account_schema",
+        "x" : -1480,
+        "y" : -180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "account",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "created",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date when the account was created",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "status",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Current status of the account",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "subscription",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "renewal",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "autoRenew",
+                          "type" : "boolean",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "Indicates if the subscription will automatically renew",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "nextBillingDate",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "The date of the next billing cycle for the subscription",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Information regarding the renewal settings of the subscription",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "type",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Type of subscription held by the account",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Details about the user's subscription",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The overall account information for the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "login",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "ip",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "IP address from which the user logged in",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "location",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "City from which the user logged in",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "country",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Country from which the user logged in",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The geographical location of the user's login",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "timestamp",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Timestamp of when the user logged in",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Details related to the user's login activity",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "paymentMethod",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "card",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "brand",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Brand of the payment card",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "expiry",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "month",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "Month when the payment card expires",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "year",
+                          "type" : "long",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "Year when the payment card expires",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Expiration details of the payment card",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "last4",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Last four digits of the payment card used",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Details of the card used for payment",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "email",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Email associated with the payment method",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "type",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Type of payment method used",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Details of the payment method used by the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "amount",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Total amount of the purchase made",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "currency",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Currency used for the purchase",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "date",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Date when the purchase was made",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "id",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Unique identifier for the purchase transaction",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "items",
+                  "type" : {
+                    "type" : "array",
+                    "elementType" : {
+                      "type" : "struct",
+                      "fields" : [ {
+                        "name" : "name",
+                        "type" : "string",
+                        "nullable" : true,
+                        "metadata" : {
+                          "description" : "Name of each item purchased",
+                          "mappings" : [ ],
+                          "tags" : [ ]
+                        }
+                      }, {
+                        "name" : "qty",
+                        "type" : "long",
+                        "nullable" : true,
+                        "metadata" : {
+                          "description" : "Quantity of items purchased",
+                          "mappings" : [ ],
+                          "tags" : [ ]
+                        }
+                      }, {
+                        "name" : "sku",
+                        "type" : "string",
+                        "nullable" : true,
+                        "metadata" : {
+                          "description" : "Stock Keeping Unit identifier for the purchased item",
+                          "mappings" : [ ],
+                          "tags" : [ ]
+                        }
+                      } ]
+                    },
+                    "containsNull" : true
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "List of items included in the purchase",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Details of the purchase made by the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Type of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "contact",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "City where the user resides",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "location",
+                          "type" : {
+                            "type" : "struct",
+                            "fields" : [ {
+                              "name" : "lat",
+                              "type" : "double",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "Latitude coordinate of the user's address location",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            }, {
+                              "name" : "lng",
+                              "type" : "double",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "Longitude coordinate of the user's address location",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            } ]
+                          },
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "Geographical location details of the user's address",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "state",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "The state where the user resides",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "The street address of the user",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "The zip code of the user's address",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "The complete address of the user",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "phone",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "home",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "The home phone number of the user",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "work",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "The work phone number of the user",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Contact information for the user's phone",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Contact details of the user",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "email",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Email address of the user",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "id",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Unique identifier for the user",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "name",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "first",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "First name of the user",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "last",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "The last name of the user",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "middle",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "The middle name of the user",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Full name of the user",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "preferences",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "notifications",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "email",
+                          "type" : "boolean",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "Flag indicating if the user wants to receive email notifications",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "push",
+                          "type" : {
+                            "type" : "struct",
+                            "fields" : [ {
+                              "name" : "enabled",
+                              "type" : "boolean",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "Indicates if push notifications are enabled for the user",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            }, {
+                              "name" : "frequency",
+                              "type" : "string",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "Frequency at which the user prefers to receive push notifications",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            } ]
+                          },
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "User's preferences for push notifications",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "sms",
+                          "type" : "boolean",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "Indicates if SMS notifications are enabled for the user",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "User's notification preferences",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "theme",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "User's selected theme preference",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "User's preferences regarding account settings",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Information related to the user account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "HtGOT5wuxhnx0N3vCYXmy$$Y1g_v2dc_Ti0bda4Y0ZbN",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "explodedColsNewName" : [ {
+          "originalColToExplode" : "purchase.items",
+          "updatedColToExplode" : "purchase.items",
+          "colNameAfterExplode" : "purchase-items"
+        } ],
+        "fsExpressions" : [ {
+          "exploded" : "",
+          "flattenedExpression" : "account.created",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"account.created\")"
+          },
+          "targetTokens" : [ "account", "created" ],
+          "target" : "account-created"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "account.status",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"account.status\")"
+          },
+          "targetTokens" : [ "account", "status" ],
+          "target" : "account-status"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "account.subscription.renewal",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"account.subscription.renewal\")"
+          },
+          "targetTokens" : [ "account", "subscription", "renewal" ],
+          "target" : "account-subscription-renewal"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "account.subscription.type",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"account.subscription.type\")"
+          },
+          "targetTokens" : [ "account", "subscription", "type" ],
+          "target" : "account-subscription-type"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "login.ip",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"login.ip\")"
+          },
+          "targetTokens" : [ "login", "ip" ],
+          "target" : "login-ip"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "paymentMethod.card",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"paymentMethod.card\")"
+          },
+          "targetTokens" : [ "paymentMethod", "card" ],
+          "target" : "paymentMethod-card"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "paymentMethod.email",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"paymentMethod.email\")"
+          },
+          "targetTokens" : [ "paymentMethod", "email" ],
+          "target" : "paymentMethod-email"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "paymentMethod.type",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"paymentMethod.type\")"
+          },
+          "targetTokens" : [ "paymentMethod", "type" ],
+          "target" : "paymentMethod-type"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "purchase.id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"purchase.id\")"
+          },
+          "targetTokens" : [ "purchase", "id" ],
+          "target" : "purchase-id"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "purchase.date",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"purchase.date\")"
+          },
+          "targetTokens" : [ "purchase", "date" ],
+          "target" : "purchase-date"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "account.subscription.renewal",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"account.subscription.renewal\")"
+          },
+          "targetTokens" : [ "account", "subscription", "renewal" ],
+          "target" : "account-subscription-renewal"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "account.subscription.type",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"account.subscription.type\")"
+          },
+          "targetTokens" : [ "account", "subscription", "type" ],
+          "target" : "account-subscription-type"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "login.timestamp",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"login.timestamp\")"
+          },
+          "targetTokens" : [ "login", "timestamp" ],
+          "target" : "login-timestamp"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "login.location.city",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"login.location.city\")"
+          },
+          "targetTokens" : [ "login", "location", "city" ],
+          "target" : "login-location-city"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "login.location.country",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"login.location.country\")"
+          },
+          "targetTokens" : [ "login", "location", "country" ],
+          "target" : "login-location-country"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "paymentMethod.card.brand",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"paymentMethod.card.brand\")"
+          },
+          "targetTokens" : [ "paymentMethod", "card", "brand" ],
+          "target" : "paymentMethod-card-brand"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "paymentMethod.card.expiry.month",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"paymentMethod.card.expiry.month\")"
+          },
+          "targetTokens" : [ "paymentMethod", "card", "expiry", "month" ],
+          "target" : "paymentMethod-card-expiry-month"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "paymentMethod.card.expiry.year",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"paymentMethod.card.expiry.year\")"
+          },
+          "targetTokens" : [ "paymentMethod", "card", "expiry", "year" ],
+          "target" : "paymentMethod-card-expiry-year"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "paymentMethod.card.last4",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"paymentMethod.card.last4\")"
+          },
+          "targetTokens" : [ "paymentMethod", "card", "last4" ],
+          "target" : "paymentMethod-card-last4"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "purchase.amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"purchase.amount\")"
+          },
+          "targetTokens" : [ "purchase", "amount" ],
+          "target" : "purchase-amount"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "purchase.currency",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"purchase.currency\")"
+          },
+          "targetTokens" : [ "purchase", "currency" ],
+          "target" : "purchase-currency"
+        }, {
+          "exploded" : "✓",
+          "flattenedExpression" : "purchase.items",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"purchase.items\")"
+          },
+          "targetTokens" : [ "purchase", "items" ],
+          "target" : "purchase-items"
+        }, {
+          "exploded" : "✓",
+          "flattenedExpression" : "purchase-items.name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"purchase.items.name\")"
+          },
+          "targetTokens" : [ "purchase", "items", "name" ],
+          "target" : "purchase-items-name"
+        }, {
+          "exploded" : "✓",
+          "flattenedExpression" : "purchase-items.sku",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"purchase.items.sku\")"
+          },
+          "targetTokens" : [ "purchase", "items", "sku" ],
+          "target" : "purchase-items-sku"
+        }, {
+          "exploded" : "✓",
+          "flattenedExpression" : "purchase-items.qty",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"purchase.items.qty\")"
+          },
+          "targetTokens" : [ "purchase", "items", "qty" ],
+          "target" : "purchase-items-qty"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "type",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"type\")"
+          },
+          "targetTokens" : [ "type" ],
+          "target" : "type"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact\")"
+          },
+          "targetTokens" : [ "user", "contact" ],
+          "target" : "user-contact"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.email",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.email\")"
+          },
+          "targetTokens" : [ "user", "email" ],
+          "target" : "user-email"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.id\")"
+          },
+          "targetTokens" : [ "user", "id" ],
+          "target" : "user-id"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.address",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.address\")"
+          },
+          "targetTokens" : [ "user", "contact", "address" ],
+          "target" : "user-contact-address"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.address.city",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.address.city\")"
+          },
+          "targetTokens" : [ "user", "contact", "address", "city" ],
+          "target" : "user-contact-address-city"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.address.location.lat",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.address.location.lat\")"
+          },
+          "targetTokens" : [ "user", "contact", "address", "location", "lat" ],
+          "target" : "user-contact-address-location-lat"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.address.location.lng",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.address.location.lng\")"
+          },
+          "targetTokens" : [ "user", "contact", "address", "location", "lng" ],
+          "target" : "user-contact-address-location-lng"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.address.state",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.address.state\")"
+          },
+          "targetTokens" : [ "user", "contact", "address", "state" ],
+          "target" : "user-contact-address-state"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.address.street",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.address.street\")"
+          },
+          "targetTokens" : [ "user", "contact", "address", "street" ],
+          "target" : "user-contact-address-street"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.address.zip",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.address.zip\")"
+          },
+          "targetTokens" : [ "user", "contact", "address", "zip" ],
+          "target" : "user-contact-address-zip"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.phone.home",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.phone.home\")"
+          },
+          "targetTokens" : [ "user", "contact", "phone", "home" ],
+          "target" : "user-contact-phone-home"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.contact.phone.work",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.contact.phone.work\")"
+          },
+          "targetTokens" : [ "user", "contact", "phone", "work" ],
+          "target" : "user-contact-phone-work"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.name.first",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.name.first\")"
+          },
+          "targetTokens" : [ "user", "name", "first" ],
+          "target" : "user-name-first"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.name.last",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.name.last\")"
+          },
+          "targetTokens" : [ "user", "name", "last" ],
+          "target" : "user-name-last"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.name.middle",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.name.middle\")"
+          },
+          "targetTokens" : [ "user", "name", "middle" ],
+          "target" : "user-name-middle"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.preferences.notifications",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.preferences.notifications\")"
+          },
+          "targetTokens" : [ "user", "preferences", "notifications" ],
+          "target" : "user-preferences-notifications"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.preferences.theme",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.preferences.theme\")"
+          },
+          "targetTokens" : [ "user", "preferences", "theme" ],
+          "target" : "user-preferences-theme"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.preferences.notifications.email",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.preferences.notifications.email\")"
+          },
+          "targetTokens" : [ "user", "preferences", "notifications", "email" ],
+          "target" : "user-preferences-notifications-email"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.preferences.notifications.push.enabled",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.preferences.notifications.push.enabled\")"
+          },
+          "targetTokens" : [ "user", "preferences", "notifications", "push", "enabled" ],
+          "target" : "user-preferences-notifications-push-enabled"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.preferences.notifications.push.frequency",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.preferences.notifications.push.frequency\")"
+          },
+          "targetTokens" : [ "user", "preferences", "notifications", "push", "frequency" ],
+          "target" : "user-preferences-notifications-push-frequency"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "user.preferences.notifications.sms",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"user.preferences.notifications.sms\")"
+          },
+          "targetTokens" : [ "user", "preferences", "notifications", "sms" ],
+          "target" : "user-preferences-notifications-sms"
+        } ],
+        "columnsSelector" : [ "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##account.subscription.type", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.phone.work", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##account.subscription", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.preferences.notifications", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.preferences.notifications.sms", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##login.location", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.preferences.notifications.push.enabled", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.address", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase.items.name", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase.amount", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod.email", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod.card.expiry", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##login.location.country", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.name.last", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.address.state", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase.items", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.phone.home", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase.currency", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##login.location.city", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.preferences.notifications.push.frequency", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase.date", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase.items.sku", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.address.location.lng", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.preferences.notifications.email", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##account.subscription.renewal", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase.id", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.address.location.lat", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.phone", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod.type", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.address.zip", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##login", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##login.timestamp", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.address.street", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##account", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.preferences.notifications.push", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.email", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##purchase.items.qty", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.id", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##type", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.name.middle", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod.card.last4", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod.card", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##account.created", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.preferences", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##account.status", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.name", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.preferences.theme", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.address.city", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod.card.expiry.month", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod.card.brand", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.name.first", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##login.ip", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##paymentMethod.card.expiry.year", "IchBcqDg7JFwz1y6Np9mg$$-fhtNWXXKKruXzuDfRr_o##user.contact.address.location" ],
+        "explodeColumns" : [ ],
+        "delimiter" : "-"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "FcrHSLhnQubDMrUpTHz1H$$ydpz1p7am34uNTkK741Bh" : {
+      "id" : "FcrHSLhnQubDMrUpTHz1H$$ydpz1p7am34uNTkK741Bh",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "sort_by_total_amount",
+        "slug" : "sort_by_total_amount",
+        "x" : -1480,
+        "y" : 140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "yCVpEo3aa0P2drCR-Yyz5$$Uegp6-Bm6TSxsaFki4zPH",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "product_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the product ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Number of units ordered for the product",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "total_amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "_rescued_data",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional data that was recovered related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "SjChYTjUtf97IPqPk6HX2$$Z5XFoxcvCJ8zov56oKBqQ",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "yCVpEo3aa0P2drCR-Yyz5$$Uegp6-Bm6TSxsaFki4zPH##total_amount", "yCVpEo3aa0P2drCR-Yyz5$$Uegp6-Bm6TSxsaFki4zPH##customer_id" ],
+        "orders" : [ {
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"total_amount\")"
+          },
+          "sortType" : "asc_nulls_last"
+        }, {
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "sortType" : "asc_nulls_last"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "F9cD_BfRTkkMTvjASnGVo$$6HWApVe9FDFZW6vApuE17" : {
@@ -912,6 +2362,33 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
+    "w1gtGCf_1LKTKxYjQ3siB$$fsidOaM-rg68tO0h6jgqb" : {
+      "id" : "w1gtGCf_1LKTKxYjQ3siB$$fsidOaM-rg68tO0h6jgqb",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "silver_orders",
+        "slug" : "silver_orders",
+        "x" : -1640,
+        "y" : 140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ilHjO1PGdImcfEAkdfUJv$$_W-5B4jqO_9FpT-GdadN5",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/silver_orders"
+      }
+    },
     "9ABBRgadLLuf18qITMiAE$$A2MREXNHnAfD7lpSbeeAb" : {
       "id" : "9ABBRgadLLuf18qITMiAE$$A2MREXNHnAfD7lpSbeeAb",
       "component" : "Deduplicate",
@@ -1119,6 +2596,823 @@
         "datasetId" : "datasets/ds_adls_source"
       }
     },
+    "uwaNlohJTUyO7IBFK8TAN$$sshSUx6ikFbU_b2zYoBXv" : {
+      "id" : "uwaNlohJTUyO7IBFK8TAN$$sshSUx6ikFbU_b2zYoBXv",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "limit_to_four",
+        "slug" : "limit_to_four",
+        "x" : -1300,
+        "y" : -180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "8pduFdKMzxHN9G2jrUnFK$$4qWUWgz72r4qIomw1isV2",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "account-created",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the account was created",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account-status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account-subscription-renewal",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "autoRenew",
+                  "type" : "boolean",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Indicates if the subscription will automatically renew",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "nextBillingDate",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date of the next billing cycle for the subscription",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Information regarding the renewal settings of the subscription",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account-subscription-type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Type of subscription held by the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "login-ip",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "IP address from which the user logged in",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "paymentMethod-card",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "brand",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Brand of the payment card",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "expiry",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "month",
+                      "type" : "long",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Month when the payment card expires",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "year",
+                      "type" : "long",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Year when the payment card expires",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Expiration details of the payment card",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "last4",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Last four digits of the payment card used",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Details of the card used for payment",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "paymentMethod-email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email associated with the payment method",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "paymentMethod-type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Type of payment method used",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase-id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the purchase transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase-date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the purchase was made",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account-subscription-renewal",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "autoRenew",
+                  "type" : "boolean",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Indicates if the subscription will automatically renew",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "nextBillingDate",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The date of the next billing cycle for the subscription",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Information regarding the renewal settings of the subscription",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account-subscription-type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Type of subscription held by the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "login-timestamp",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Timestamp of when the user logged in",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "login-location-city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City from which the user logged in",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "login-location-country",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country from which the user logged in",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "paymentMethod-card-brand",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Brand of the payment card",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "paymentMethod-card-expiry-month",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Month when the payment card expires",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "paymentMethod-card-expiry-year",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Year when the payment card expires",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "paymentMethod-card-last4",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Last four digits of the payment card used",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase-amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total amount of the purchase made",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase-currency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Currency used for the purchase",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase-items",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of each item purchased",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "qty",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Quantity of items purchased",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "sku",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Stock Keeping Unit identifier for the purchased item",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase-items-name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of each item purchased",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase-items-sku",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Stock Keeping Unit identifier for the purchased item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "purchase-items-qty",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Quantity of items purchased",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Type of the account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "address",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "City where the user resides",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "location",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "lat",
+                          "type" : "double",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "Latitude coordinate of the user's address location",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "lng",
+                          "type" : "double",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "Longitude coordinate of the user's address location",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Geographical location details of the user's address",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "state",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "The state where the user resides",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "street",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "The street address of the user",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "zip",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "The zip code of the user's address",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The complete address of the user",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "phone",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "home",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "The home phone number of the user",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "work",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "The work phone number of the user",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Contact information for the user's phone",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Contact details of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-address",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "city",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "City where the user resides",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "location",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "lat",
+                      "type" : "double",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Latitude coordinate of the user's address location",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "lng",
+                      "type" : "double",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Longitude coordinate of the user's address location",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Geographical location details of the user's address",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "state",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The state where the user resides",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "street",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The street address of the user",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "zip",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The zip code of the user's address",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The complete address of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-address-city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the user resides",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-address-location-lat",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Latitude coordinate of the user's address location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-address-location-lng",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Longitude coordinate of the user's address location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-address-state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the user resides",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-address-street",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The street address of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-address-zip",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The zip code of the user's address",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-phone-home",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The home phone number of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-contact-phone-work",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The work phone number of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-name-first",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "First name of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-name-last",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-name-middle",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The middle name of the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-preferences-notifications",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "email",
+                  "type" : "boolean",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Flag indicating if the user wants to receive email notifications",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "push",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "enabled",
+                      "type" : "boolean",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Indicates if push notifications are enabled for the user",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "frequency",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "Frequency at which the user prefers to receive push notifications",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "User's preferences for push notifications",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "sms",
+                  "type" : "boolean",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Indicates if SMS notifications are enabled for the user",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "User's notification preferences",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-preferences-theme",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "User's selected theme preference",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-preferences-notifications-email",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flag indicating if the user wants to receive email notifications",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-preferences-notifications-push-enabled",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Indicates if push notifications are enabled for the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-preferences-notifications-push-frequency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Frequency at which the user prefers to receive push notifications",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "user-preferences-notifications-sms",
+              "type" : "boolean",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Indicates if SMS notifications are enabled for the user",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "EQN4LqR66-OrkkdJ63wRk$$xN4hAj1I6bJwrvVHQr2I1",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "limit" : "4"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/Limit",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "9uH4lqEBJ-p3GktOgirD_$$M_7PY4iFYgIIRZc8QktIn" : {
       "id" : "9uH4lqEBJ-p3GktOgirD_$$M_7PY4iFYgIIRZc8QktIn",
       "component" : "SampleRows",
@@ -1260,13 +3554,116 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "sampling_ratio" : "0.5",
+        "sampling_ratio" : "12",
         "with_replacement" : false,
         "seed" : null,
-        "sampling_strategy" : "percR"
+        "sampling_strategy" : "numR"
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/SampleRows",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "GbF-hm1lxHwv_ueHhng-a$$d_24T09uA1R8rae1oU5WL" : {
+      "id" : "GbF-hm1lxHwv_ueHhng-a$$d_24T09uA1R8rae1oU5WL",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "limit_to_twenty",
+        "slug" : "limit_to_twenty",
+        "x" : -1340,
+        "y" : 140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "V1N2_aS7ALxa8_sRbb4xS$$_MFjVX_Xqmq-KJ3-i6xcE",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "product_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the product ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Number of units ordered for the product",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "total_amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "_rescued_data",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional data that was recovered related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "5R9ymUF6m4913egYT4oeq$$2VyS-nrCM4LOoprd-dK7v",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "limit" : "20"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/Limit",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1698,6 +4095,182 @@
       "properties" : {
         "datasetId" : "datasets/ds_adls_source"
       }
+    },
+    "x2E6n5wAt1A9HGLPeocsC$$2p9-4Zo_R8buDwts9Tgm-" : {
+      "id" : "x2E6n5wAt1A9HGLPeocsC$$2p9-4Zo_R8buDwts9Tgm-",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "restructure_order_data",
+        "slug" : "restructure_order_data",
+        "x" : -1160,
+        "y" : 140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "product_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the product ordered",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "quantity",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Number of units ordered for the product",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "total_amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "_rescued_data",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Additional data that was recovered related to the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "fHBEUfY3-ZMLREqPkR-bk$$NDUM7g1fjPwNEqDy4r0CG",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"order_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "product_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"product_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_date",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"order_date\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "quantity",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"quantity\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "total_amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"total_amount\")"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy##total_amount", "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy##order_id", "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy##quantity", "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy##order_date", "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy##product_id", "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy##customer_id" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F" : {
+      "id" : "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "silver_customers",
+        "slug" : "silver_customers",
+        "x" : -1640,
+        "y" : -20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "2PmH6eFK36eXwgKmTV6GQ$$FaUzwkhuf0pZjtNAtwHve",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/silver_customers"
+      }
     }
   },
   "ports" : {
@@ -1706,5 +4279,22 @@
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
     "autoUpdateOnRun" : false
-  }
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.ByCIpzCSor0t-gyCcyVIx$$Y_lcTk8ShrYuFiWCF7Jbu.ports.inputs[0]",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Please connect input port in0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
 }

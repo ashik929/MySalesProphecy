@@ -1,0 +1,53 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: order_id
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for each order placed
+      mappings: []
+      tags: []
+  - name: customer_id
+    type: string
+    nullable: true
+    metadata:
+      description: The unique identifier for the customer who placed the order
+      mappings: []
+      tags: []
+  - name: product_id
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for the product ordered
+      mappings: []
+      tags: []
+  - name: order_date
+    type: date
+    nullable: true
+    metadata:
+      description: Date when the order was placed
+      mappings: []
+      tags: []
+  - name: quantity
+    type: integer
+    nullable: true
+    metadata:
+      description: Number of units ordered for the product
+      mappings: []
+      tags: []
+  - name: total_amount
+    type: double
+    nullable: true
+    metadata:
+      description: Total monetary value of the order
+      mappings: []
+      tags: []
+  - name: _rescued_data
+    type: string
+    nullable: true
+    metadata:
+      description: Additional data that was recovered related to the order
+      mappings: []
+      tags: []
