@@ -1,0 +1,25 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: Item_Identifier
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for each item in the dataset
+      mappings: []
+      tags: []
+  - name: Outlet_Identifier
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for the retail outlet
+      mappings: []
+      tags: []
+  - name: Item_Outlet_Sales
+    type: string
+    nullable: true
+    metadata:
+      description: Sales amount generated from the item at the outlet
+      mappings: []
+      tags: []

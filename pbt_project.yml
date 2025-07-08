@@ -38,7 +38,9 @@ pipelines:
     language: python
     createdAt: '2025-07-08 17:12:34'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/ds_join_items
+      - datasets/ds_join_sales
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -134,6 +136,32 @@ datasets:
         description: ''
         author: ashikchavan2900@gmail.com
         createdAt: '2025-07-08 06:19:36'
+  datasets/ds_join_sales:
+    name: ds_join_sales
+    description: ''
+    author: ashikchavan2900@gmail.com
+    createdAt: '2025-07-08 17:14:57'
+    mode: batch
+    physicalDatasets:
+      Development:
+        fabricId: 30045
+        datasetType: File
+        description: ''
+        author: ashikchavan2900@gmail.com
+        createdAt: '2025-07-08 17:14:57'
+  datasets/ds_join_items:
+    name: ds_join_items
+    description: ''
+    author: ashikchavan2900@gmail.com
+    createdAt: '2025-07-08 17:16:54'
+    mode: batch
+    physicalDatasets:
+      Development:
+        fabricId: 30045
+        datasetType: File
+        description: ''
+        author: ashikchavan2900@gmail.com
+        createdAt: '2025-07-08 17:16:54'
 templates: {}
 jobs: {}
 gemContainer:

@@ -1,0 +1,32 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: Item_Identifier
+    type: string
+    nullable: true
+    metadata:
+      description: Unique identifier for each item in the dataset
+      mappings: []
+      tags: []
+  - name: Item_Type
+    type: string
+    nullable: true
+    metadata:
+      description: Type of the item being sold
+      mappings: []
+      tags: []
+  - name: Item_Fat_Content
+    type: string
+    nullable: true
+    metadata:
+      description: Description of the fat content in the item
+      mappings: []
+      tags: []
+  - name: Item_MRP
+    type: string
+    nullable: true
+    metadata:
+      description: Maximum retail price of the item as a string
+      mappings: []
+      tags: []

@@ -1,0 +1,397 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.10.2",
+        "pyPiVersion" : "1.9.49"
+      },
+      "sparkConfigJinjaEnabled" : true
+    },
+    "id" : "1",
+    "uri" : "pipelines/Join",
+    "sourceSuggestions" : [ ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "Join",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true,
+      "sparkConfigOptions" : {
+        "disableSparkCreationTimeConfigGeneration" : true
+      }
+    },
+    "language" : "python",
+    "fabricId" : "30045",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "ashikchavan2900gmailcomteam.salesproject.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ {
+      "name" : "spark.default.parallelism",
+      "value" : "4"
+    }, {
+      "name" : "spark.sql.legacy.allowUntypedScalaUDF",
+      "value" : "true"
+    } ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "join",
+    "configTopLevelPackage" : "join",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "F0K1KnfDWqXsRv__UpAb9",
+    "source" : "u7NXoL5UerV2dByweOp0n$$0B2PIXCnKfMiDbNWbg99S",
+    "sourcePort" : "L-G00cySVRNOJ0ebUX4oK$$gLwFTOWkMhnm7jsU_DhlV",
+    "target" : "v5ViWgmcavYSlFRedUDi_$$5jcXjAr1lVT0p8FAy5uQm",
+    "targetPort" : "vf7s5WpX7TXsjV3e52yf4$$3lx4lWWAPHMddlk1ZV2EW"
+  }, {
+    "id" : "7yN6egdvLjiEdoEfit2fj",
+    "source" : "XWIeyFKKiLopnCSZ4gZEs$$pkNYLUkCqFS9BUdZwZ20W",
+    "sourcePort" : "1KcCdG1RnS4uJjvd4khc1$$NTiSUsGqBEWVDpMUTDn85",
+    "target" : "v5ViWgmcavYSlFRedUDi_$$5jcXjAr1lVT0p8FAy5uQm",
+    "targetPort" : "qOFB0J_toyFdPg7zx41CX$$i2H0LSFWpPKdcEbPLPUnN"
+  }, {
+    "id" : "c_qIisRZvx3wF1yh0B9lb$$QdK4IuIKZncGqjG4T0HW6",
+    "source" : "v5ViWgmcavYSlFRedUDi_$$5jcXjAr1lVT0p8FAy5uQm",
+    "sourcePort" : "Yymfz-9d1PaSmNWIaNEsZ$$k4yZHKNkuFlii3a4ckAbZ",
+    "target" : "VbThR42_K4mfdb5UxXj7D$$-_ih3lGM0NAObo2G143pF",
+    "targetPort" : "aX4ya_MYeTlUCnvSydQ5E$$b9e1vCjqWtOySK-bP_UJ6"
+  } ],
+  "processes" : {
+    "u7NXoL5UerV2dByweOp0n$$0B2PIXCnKfMiDbNWbg99S" : {
+      "id" : "u7NXoL5UerV2dByweOp0n$$0B2PIXCnKfMiDbNWbg99S",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "ds_join_sales",
+        "slug" : "ds_join_sales",
+        "x" : -520,
+        "y" : -200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "L-G00cySVRNOJ0ebUX4oK$$gLwFTOWkMhnm7jsU_DhlV",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/ds_join_sales"
+      }
+    },
+    "XWIeyFKKiLopnCSZ4gZEs$$pkNYLUkCqFS9BUdZwZ20W" : {
+      "id" : "XWIeyFKKiLopnCSZ4gZEs$$pkNYLUkCqFS9BUdZwZ20W",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "ds_join_items",
+        "slug" : "ds_join_items",
+        "x" : -500,
+        "y" : -20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "1KcCdG1RnS4uJjvd4khc1$$NTiSUsGqBEWVDpMUTDn85",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/ds_join_items"
+      }
+    },
+    "v5ViWgmcavYSlFRedUDi_$$5jcXjAr1lVT0p8FAy5uQm" : {
+      "id" : "v5ViWgmcavYSlFRedUDi_$$5jcXjAr1lVT0p8FAy5uQm",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "left_outer_item_join",
+        "slug" : "left_outer_item_join",
+        "x" : -180,
+        "y" : -120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "vf7s5WpX7TXsjV3e52yf4$$3lx4lWWAPHMddlk1ZV2EW",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "Item_Identifier",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each item in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Identifier",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the retail outlet",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Outlet_Sales",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Sales amount generated from the item at the outlet",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "qOFB0J_toyFdPg7zx41CX$$i2H0LSFWpPKdcEbPLPUnN",
+          "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "Item_Identifier",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each item in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Type of the item being sold",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Fat_Content",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Description of the fat content in the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_MRP",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Maximum retail price of the item as a string",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Yymfz-9d1PaSmNWIaNEsZ$$k4yZHKNkuFlii3a4ckAbZ",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "in0.Item_Identifier=in1.Item_Identifier"
+          },
+          "joinType" : "outer"
+        } ],
+        "expressions" : [ {
+          "target" : "log_sales",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ln(CAST(in0.Item_Outlet_Sales AS DOUBLE))"
+          },
+          "description" : "",
+          "_row_id" : "PvrkJt7_C0"
+        } ],
+        "hints" : [ {
+          "id" : "vf7s5WpX7TXsjV3e52yf4$$3lx4lWWAPHMddlk1ZV2EW",
+          "alias" : "in0",
+          "hintType" : "broadcast",
+          "propagateColumns" : true
+        }, {
+          "id" : "qOFB0J_toyFdPg7zx41CX$$i2H0LSFWpPKdcEbPLPUnN",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "advanced",
+        "columnsSelector" : [ "qOFB0J_toyFdPg7zx41CX$$i2H0LSFWpPKdcEbPLPUnN##Item_Identifier", "vf7s5WpX7TXsjV3e52yf4$$3lx4lWWAPHMddlk1ZV2EW##Item_Identifier", "vf7s5WpX7TXsjV3e52yf4$$3lx4lWWAPHMddlk1ZV2EW##Item_Outlet_Sales" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "in0"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "VbThR42_K4mfdb5UxXj7D$$-_ih3lGM0NAObo2G143pF" : {
+      "id" : "VbThR42_K4mfdb5UxXj7D$$-_ih3lGM0NAObo2G143pF",
+      "component" : "Repartition",
+      "metadata" : {
+        "label" : "repartition_data",
+        "slug" : "repartition_data",
+        "x" : -20,
+        "y" : -120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "aX4ya_MYeTlUCnvSydQ5E$$b9e1vCjqWtOySK-bP_UJ6",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "log_sales",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Identifier",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each item in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Identifier",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the retail outlet",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Outlet_Sales",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Sales amount generated from the item at the outlet",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "J0m7LwWXBy-F4iqSVixJf$$ItHUMonTDHRtCxgVnD6p2",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "overwriteDefaultNPartitions" : false,
+        "hashExpressions" : [ ],
+        "columnsSelector" : [ ],
+        "repartitionType" : "random_repartitioning",
+        "rangeExpressions" : [ ],
+        "defaultPartitions" : null,
+        "nPartitions" : "10"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/Repartition",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}
