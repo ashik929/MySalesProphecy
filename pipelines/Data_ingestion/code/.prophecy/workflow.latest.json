@@ -15,163 +15,7 @@
     },
     "id" : "1",
     "uri" : "pipelines/Data_ingestion",
-    "sourceSuggestions" : [ {
-      "sourceLabel" : "silver_products_1",
-      "sourceDatasetId" : "datasets/silver_products",
-      "canJoinWith" : [ {
-        "processLabel" : "silver_customers",
-        "processId" : "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F",
-        "joinColumns" : [ "_rescued_data" ],
-        "isRecommended" : true,
-        "properties" : {
-          "columnsSelector" : [ "_rescued_data" ],
-          "conditions" : [ {
-            "alias" : "silver_products_1",
-            "expression" : "(col(\"silver_customers._rescued_data\") == col(\"silver_products_1._rescued_data\"))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "product_id",
-            "expression" : "col(\"silver_products_1.product_id\")"
-          }, {
-            "alias" : "product_name",
-            "expression" : "col(\"silver_products_1.product_name\")"
-          }, {
-            "alias" : "category",
-            "expression" : "col(\"silver_products_1.category\")"
-          }, {
-            "alias" : "brand",
-            "expression" : "col(\"silver_products_1.brand\")"
-          }, {
-            "alias" : "price",
-            "expression" : "col(\"silver_products_1.price\")"
-          }, {
-            "alias" : "email",
-            "expression" : "col(\"silver_customers.email\")"
-          }, {
-            "alias" : "city",
-            "expression" : "col(\"silver_customers.city\")"
-          }, {
-            "alias" : "last_name",
-            "expression" : "col(\"silver_customers.last_name\")"
-          }, {
-            "alias" : "first_name",
-            "expression" : "col(\"silver_customers.first_name\")"
-          }, {
-            "alias" : "state",
-            "expression" : "col(\"silver_customers.state\")"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "col(\"silver_customers.customer_id\")"
-          }, {
-            "alias" : "_rescued_data",
-            "expression" : "col(\"silver_customers._rescued_data\")"
-          } ],
-          "headAlias" : "datasets/silver_products"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "silver_orders_1",
-      "sourceDatasetId" : "datasets/silver_orders",
-      "canJoinWith" : [ {
-        "processLabel" : "silver_customers",
-        "processId" : "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F",
-        "joinColumns" : [ "customer_id", "_rescued_data" ],
-        "isRecommended" : true,
-        "properties" : {
-          "columnsSelector" : [ "customer_id", "_rescued_data" ],
-          "conditions" : [ {
-            "alias" : "silver_orders_1",
-            "expression" : "((col(\"silver_customers._rescued_data\") == col(\"silver_orders_1._rescued_data\")) & (col(\"silver_customers.customer_id\") == col(\"silver_orders_1.customer_id\")))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "order_id",
-            "expression" : "col(\"silver_orders_1.order_id\")"
-          }, {
-            "alias" : "product_id",
-            "expression" : "col(\"silver_orders_1.product_id\")"
-          }, {
-            "alias" : "order_date",
-            "expression" : "col(\"silver_orders_1.order_date\")"
-          }, {
-            "alias" : "quantity",
-            "expression" : "col(\"silver_orders_1.quantity\")"
-          }, {
-            "alias" : "total_amount",
-            "expression" : "col(\"silver_orders_1.total_amount\")"
-          }, {
-            "alias" : "email",
-            "expression" : "col(\"silver_customers.email\")"
-          }, {
-            "alias" : "city",
-            "expression" : "col(\"silver_customers.city\")"
-          }, {
-            "alias" : "last_name",
-            "expression" : "col(\"silver_customers.last_name\")"
-          }, {
-            "alias" : "first_name",
-            "expression" : "col(\"silver_customers.first_name\")"
-          }, {
-            "alias" : "state",
-            "expression" : "col(\"silver_customers.state\")"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "col(\"silver_customers.customer_id\")"
-          }, {
-            "alias" : "_rescued_data",
-            "expression" : "col(\"silver_customers._rescued_data\")"
-          } ],
-          "headAlias" : "datasets/silver_orders"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "bronze_region",
-      "sourceDatasetId" : "datasets/bronze_region",
-      "canJoinWith" : [ {
-        "processLabel" : "silver_customers",
-        "processId" : "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F",
-        "joinColumns" : [ "_rescued_data" ],
-        "isRecommended" : true,
-        "properties" : {
-          "columnsSelector" : [ "_rescued_data" ],
-          "conditions" : [ {
-            "alias" : "bronze_region",
-            "expression" : "(col(\"silver_customers._rescued_data\") == col(\"bronze_region._rescued_data\"))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "region_id",
-            "expression" : "col(\"bronze_region.region_id\")"
-          }, {
-            "alias" : "region",
-            "expression" : "col(\"bronze_region.region\")"
-          }, {
-            "alias" : "email",
-            "expression" : "col(\"silver_customers.email\")"
-          }, {
-            "alias" : "city",
-            "expression" : "col(\"silver_customers.city\")"
-          }, {
-            "alias" : "last_name",
-            "expression" : "col(\"silver_customers.last_name\")"
-          }, {
-            "alias" : "first_name",
-            "expression" : "col(\"silver_customers.first_name\")"
-          }, {
-            "alias" : "state",
-            "expression" : "col(\"silver_customers.state\")"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "col(\"silver_customers.customer_id\")"
-          }, {
-            "alias" : "_rescued_data",
-            "expression" : "col(\"silver_customers._rescued_data\")"
-          } ],
-          "headAlias" : "datasets/bronze_region"
-        }
-      } ]
-    } ],
+    "sourceSuggestions" : [ ],
     "pipelineSettingsInfo" : {
       "applicationName" : "Data_ingestion",
       "hasApplication" : true,
@@ -320,6 +164,30 @@
     "sourcePort" : "5R9ymUF6m4913egYT4oeq$$2VyS-nrCM4LOoprd-dK7v",
     "target" : "x2E6n5wAt1A9HGLPeocsC$$2p9-4Zo_R8buDwts9Tgm-",
     "targetPort" : "ueLZ2EZDQzY3AoH5CAzqV$$_1K62LMXnPR2tyuxWShUy"
+  }, {
+    "id" : "QAx7b8w7njbdESmiM6LoE$$OjKKLN-UE6Viv3mU5OuI3",
+    "source" : "oiaxbArpVe6A0Dc11isl_$$23iTxMDkZv67TkKYNxj7F",
+    "sourcePort" : "2PmH6eFK36eXwgKmTV6GQ$$FaUzwkhuf0pZjtNAtwHve",
+    "target" : "muSGNwCyIgbz8rMrqiwLu$$5WE13pnRmBqXG0aU2FI4I",
+    "targetPort" : "2YMJYT7nz_u4R9pAM4HEb$$DKRoAQvbDFk1rWQYq_4hE"
+  }, {
+    "id" : "_irtUxfT8BCGBR6sZOmX_$$u4VueHnZGMaUAkItKnYAY",
+    "source" : "9uH4lqEBJ-p3GktOgirD_$$M_7PY4iFYgIIRZc8QktIn",
+    "sourcePort" : "kmsA9r9qmTCCRBXHVx2A0$$w2vw1gNI3uAIJMTGZgYgg",
+    "target" : "87umoiJ-PLbJe6bPEbaby$$U8MYuJiRGr3nffGF1ttmN",
+    "targetPort" : "YifYK0JRvvdJNkCq5mRy8$$hVjLWaFfOcEztpswrVcfu"
+  }, {
+    "id" : "GqMKUi0OxOV7ORa7p-cOP$$y9TNBbNYR3WBU68-nnJtw",
+    "source" : "rBByiayzhrElgS4HAbHTd$$Z27CocY3IdRooBwxyqiX7",
+    "sourcePort" : "giJc7JorTT_0jU78tPjEI$$VRjAs5Ge7v1ZrQ3ZPf9-U",
+    "target" : "gcK9ytJnSPt58iKVh9_Cf$$T7GnavO2-uBdbSKIsxYYE",
+    "targetPort" : "HwLQYuzjdsuH0cqN6XK8u$$ZYV_ruwtZW_A5rId-brVw"
+  }, {
+    "id" : "ykv8PsMuuTvrbry8My4-i$$2Fa7jbzFpuyESgcv2xOR6",
+    "source" : "87umoiJ-PLbJe6bPEbaby$$U8MYuJiRGr3nffGF1ttmN",
+    "sourcePort" : "ESFja5Hs52TnMr0uWtdpn$$AuD-hV7BX0FZhPk57e_7g",
+    "target" : "gBB74nIYnemDYVFaDJcNU$$C0CcTf4qeLdG4VhWhv3Dm",
+    "targetPort" : "lHkbd1T4w3RBLNhGWi7m1$$BfyTnKap6vH3kKbrtgrWv"
   } ],
   "processes" : {
     "pZ-CzsCGaN73t3C9Nbo4a$$bt0V8QFDz62gOufhfysuR" : {
@@ -347,55 +215,6 @@
       },
       "properties" : {
         "datasetId" : "datasets/sample1"
-      }
-    },
-    "ByCIpzCSor0t-gyCcyVIx$$Y_lcTk8ShrYuFiWCF7Jbu" : {
-      "id" : "ByCIpzCSor0t-gyCcyVIx$$Y_lcTk8ShrYuFiWCF7Jbu",
-      "component" : "DynamicSelect",
-      "metadata" : {
-        "label" : "DynamicSelect_1",
-        "slug" : "DynamicSelect_1",
-        "x" : -1640,
-        "y" : 300,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false,
-        "dataPreview" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "uAvXWhH66wUBRmQjzTgD-$$DsUX2Tq9nmuxyrfNEbmD4",
-          "slug" : "in0"
-        } ],
-        "outputs" : [ {
-          "id" : "guJdXosYjGv6zJUFPbPqB$$Lz3sI1bVwXfu2mxnbStgD",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "structTypeChecked" : false,
-        "dateTypeChecked" : false,
-        "binaryTypeChecked" : false,
-        "strTypeChecked" : false,
-        "floatTypeChecked" : false,
-        "timestampTypeChecked" : false,
-        "boolTypeChecked" : false,
-        "customExpression" : null,
-        "longTypeChecked" : false,
-        "doubleTypeChecked" : false,
-        "intTypeChecked" : false,
-        "byteTypeChecked" : false,
-        "decimalTypeChecked" : false,
-        "selectUsing" : "SELECT_FIELD_TYPES",
-        "shortTypeChecked" : false
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/DynamicSelect",
-        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "JY0ORPGa0rMYyY5en4klB$$2gu9jkGCwjQ6TMM-Vs0A9" : {
@@ -659,6 +478,123 @@
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/BulkColumnRename",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "muSGNwCyIgbz8rMrqiwLu$$5WE13pnRmBqXG0aU2FI4I" : {
+      "id" : "muSGNwCyIgbz8rMrqiwLu$$5WE13pnRmBqXG0aU2FI4I",
+      "component" : "DynamicSelect",
+      "metadata" : {
+        "label" : "dynamic_column_selection",
+        "slug" : "dynamic_column_selection",
+        "x" : -1420,
+        "y" : -20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "2YMJYT7nz_u4R9pAM4HEb$$DKRoAQvbDFk1rWQYq_4hE",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "City where the customer resides",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The state where the customer resides",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "_rescued_data",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Data that has been recovered or salvaged related to the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "VYtnpABRD-sgRMOsFfk1N$$SUkLeWkgCuX6DPrre3jQR",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "structTypeChecked" : false,
+        "dateTypeChecked" : false,
+        "binaryTypeChecked" : false,
+        "strTypeChecked" : false,
+        "floatTypeChecked" : false,
+        "timestampTypeChecked" : false,
+        "boolTypeChecked" : false,
+        "customExpression" : "startswith(column_name, \"first_name\")",
+        "longTypeChecked" : false,
+        "doubleTypeChecked" : false,
+        "intTypeChecked" : false,
+        "byteTypeChecked" : false,
+        "decimalTypeChecked" : false,
+        "selectUsing" : "SELECT_EXPR",
+        "shortTypeChecked" : false
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/DynamicSelect",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2569,6 +2505,510 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
+    "gcK9ytJnSPt58iKVh9_Cf$$T7GnavO2-uBdbSKIsxYYE" : {
+      "id" : "gcK9ytJnSPt58iKVh9_Cf$$T7GnavO2-uBdbSKIsxYYE",
+      "component" : "SchemaTransform",
+      "metadata" : {
+        "label" : "no_operation",
+        "slug" : "no_operation",
+        "x" : -960,
+        "y" : -340,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "HwLQYuzjdsuH0cqN6XK8u$$ZYV_ruwtZW_A5rId-brVw",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "product_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each product",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "product_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The name of the product",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The category to which the product belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "brand",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The brand name of the product",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "price",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The selling price of the product",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "swTzeokokZAgC3PsPUrpq$$_LvS0uSd8YC_sygnLNPVM",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "sql",
+        "importString" : "addrep,discounted_price,price * 0.9\r\naddrep,brand_upper,upper(brand)\r\naddrep,category,initcap(category)",
+        "transformations" : [ ],
+        "activeTab" : "advanced",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "gBB74nIYnemDYVFaDJcNU$$C0CcTf4qeLdG4VhWhv3Dm" : {
+      "id" : "gBB74nIYnemDYVFaDJcNU$$C0CcTf4qeLdG4VhWhv3Dm",
+      "component" : "SchemaTransform",
+      "metadata" : {
+        "label" : "no_op_transformation",
+        "slug" : "no_op_transformation",
+        "x" : -820,
+        "y" : -520,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "lHkbd1T4w3RBLNhGWi7m1$$BfyTnKap6vH3kKbrtgrWv",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "Item Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Fat_Content",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Identifier",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_MRP",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Outlet_Sales",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Visibility",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Weight",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Establishment_Year",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Identifier",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Location_Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Size",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "YNlSJzY848pkShMsrXrn-$$4vek5vaaJkgy1uULGGMYr",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "Item Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Fat_Content",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Identifier",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_MRP",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Outlet_Sales",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Visibility",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Weight",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Establishment_Year",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Identifier",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Location_Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Size",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "importLanguage" : "sql",
+        "importString" : "addrep,Item_MRP,cast(Item_MRP as double)\r\naddrep,Item_Outlet_Sales,cast(Item_Outlet_Sales as double)\r\naddrep,Item_Visibility,cast(Item_Visibility as double)\r\naddrep,Item_Weight,cast(Item_Weight as double)\r\naddrep,Outlet_Establishment_Year,cast(Outlet_Establishment_Year as int)\r\n",
+        "transformations" : [ {
+          "AddRule" : {
+            "expression" : {
+              "expression" : "",
+              "format" : "python"
+            },
+            "param_errors" : [ ]
+          },
+          "MissingColumn" : {
+            "sourceColumn" : "",
+            "defaultValue" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "Item_MRP",
+            "expression" : {
+              "format" : "python",
+              "expression" : "col(\"Item_MRP\").cast(DoubleType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "expression" : "",
+              "format" : "python"
+            },
+            "param_errors" : [ ]
+          },
+          "MissingColumn" : {
+            "sourceColumn" : "",
+            "defaultValue" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "Item_Outlet_Sales",
+            "expression" : {
+              "format" : "python",
+              "expression" : "col(\"Item_Outlet_Sales\").cast(DoubleType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "expression" : "",
+              "format" : "python"
+            },
+            "param_errors" : [ ]
+          },
+          "MissingColumn" : {
+            "sourceColumn" : "",
+            "defaultValue" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "Item_Visibility",
+            "expression" : {
+              "format" : "python",
+              "expression" : "col(\"Item_Visibility\").cast(DoubleType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "expression" : "",
+              "format" : "python"
+            },
+            "param_errors" : [ ]
+          },
+          "MissingColumn" : {
+            "sourceColumn" : "",
+            "defaultValue" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "Item_Weight",
+            "expression" : {
+              "format" : "python",
+              "expression" : "col(\"Item_Weight\").cast(DoubleType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "expression" : "",
+              "format" : "python"
+            },
+            "param_errors" : [ ]
+          },
+          "MissingColumn" : {
+            "sourceColumn" : "",
+            "defaultValue" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "Outlet_Establishment_Year",
+            "expression" : {
+              "format" : "python",
+              "expression" : "col(\"Outlet_Establishment_Year\").cast(IntegerType())"
+            }
+          }
+        } ],
+        "activeTab" : "transformations",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "x7zyJQcxGzibP0DS3embi$$JcxVUNohHoSncuhfYBCVf" : {
       "id" : "x7zyJQcxGzibP0DS3embi$$JcxVUNohHoSncuhfYBCVf",
       "component" : "Source",
@@ -3564,6 +4004,393 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
+    "87umoiJ-PLbJe6bPEbaby$$U8MYuJiRGr3nffGF1ttmN" : {
+      "id" : "87umoiJ-PLbJe6bPEbaby$$U8MYuJiRGr3nffGF1ttmN",
+      "component" : "DataCleansing",
+      "metadata" : {
+        "label" : "remove_empty_columns",
+        "slug" : "remove_empty_columns",
+        "x" : -980,
+        "y" : -520,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "YifYK0JRvvdJNkCq5mRy8$$hVjLWaFfOcEztpswrVcfu",
+          "slug" : "df",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "Item Type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Fat_Content",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Description of the fat content in the item",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Identifier",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each item in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_MRP",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Maximum retail price of the item as string",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Outlet_Sales",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Sales amount generated by the item at the outlet",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Visibility",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Visibility score of the item in the store",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Weight",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Weight of the item as a string value",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Establishment_Year",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Year when the outlet was established as a string",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Identifier",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each outlet",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Location_Type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Type of location where the outlet is situated",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Size",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Size category of the outlet where the item is sold",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Type of the retail outlet where the item is sold",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "ESFja5Hs52TnMr0uWtdpn$$AuD-hV7BX0FZhPk57e_7g",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "Item Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Fat_Content",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Identifier",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_MRP",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Outlet_Sales",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Visibility",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Item_Weight",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Establishment_Year",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Identifier",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Location_Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Size",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Outlet_Type",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "trimWhiteSpace" : false,
+        "replaceNullForNumericFields" : false,
+        "cleanLetters" : false,
+        "replaceNullTextWith" : "NA",
+        "replaceNullTextFields" : true,
+        "columnNames" : [ "Item Type", "Item_Fat_Content", "Item_Identifier", "Item_MRP", "Item_Outlet_Sales", "Item_Visibility", "Item_Weight", "Outlet_Establishment_Year", "Outlet_Identifier", "Outlet_Location_Type", "Outlet_Size", "Outlet_Type" ],
+        "makeTitlecase" : false,
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "Item Type",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Item_Fat_Content",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Description of the fat content in the item",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Item_Identifier",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Unique identifier for each item in the dataset",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Item_MRP",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Maximum retail price of the item as string",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Item_Outlet_Sales",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Sales amount generated by the item at the outlet",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Item_Visibility",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Visibility score of the item in the store",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Item_Weight",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Weight of the item as a string value",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Outlet_Establishment_Year",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Year when the outlet was established as a string",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Outlet_Identifier",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Unique identifier for each outlet",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Outlet_Location_Type",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Type of location where the outlet is situated",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Outlet_Size",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Size category of the outlet where the item is sold",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Outlet_Type",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Type of the retail outlet where the item is sold",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "allWhiteSpace" : false,
+        "removeTabsLineBreaksAndDuplicateWhitespace" : false,
+        "cleanPunctuations" : false,
+        "null_operation" : "keep_all",
+        "makeLowercase" : false,
+        "makeUppercase" : false,
+        "cleanNumbers" : false,
+        "replaceNullNumericWith" : 0
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/DataCleansing",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "GbF-hm1lxHwv_ueHhng-a$$d_24T09uA1R8rae1oU5WL" : {
       "id" : "GbF-hm1lxHwv_ueHhng-a$$d_24T09uA1R8rae1oU5WL",
       "component" : "Limit",
@@ -3660,7 +4487,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "limit" : "20"
+        "limit" : "1000"
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.46&projectSubscriptionProjectId=12654&path=gems/Limit",
@@ -4279,22 +5106,5 @@
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
     "autoUpdateOnRun" : false
-  },
-  "diagnostics" : [ {
-    "property" : "$.workflow.processes.ByCIpzCSor0t-gyCcyVIx$$Y_lcTk8ShrYuFiWCF7Jbu.ports.inputs[0]",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "Please connect input port in0",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  } ]
+  }
 }

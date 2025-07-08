@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from data_ingestion.config.ConfigStore import *
 from data_ingestion.functions import *
 
-def DynamicSelect_1(spark: SparkSession, in0: DataFrame) -> DataFrame:
+def dynamic_column_selection(spark: SparkSession, in0: DataFrame) -> DataFrame:
     from typing import Optional, List, Dict
     from dataclasses import dataclass, field
     from abc import ABC
@@ -89,7 +89,7 @@ def DynamicSelect_1(spark: SparkSession, in0: DataFrame) -> DataFrame:
         customExpression: Optional[str] = None
 
     props = DynamicSelectProperties(  #skiptraversal
-        selectUsing = "SELECT_FIELD_TYPES", 
+        selectUsing = "SELECT_EXPR", 
         boolTypeChecked = False, 
         strTypeChecked = False, 
         intTypeChecked = False, 
@@ -103,7 +103,7 @@ def DynamicSelect_1(spark: SparkSession, in0: DataFrame) -> DataFrame:
         dateTypeChecked = False, 
         timestampTypeChecked = False, 
         structTypeChecked = False, 
-        customExpression = None
+        customExpression = "startswith(column_name, \"first_name\")"
     )
     in0 = in0
 

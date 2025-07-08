@@ -6,5 +6,5 @@ from prophecy.libs import typed_lit
 from data_ingestion.config.ConfigStore import *
 from data_ingestion.functions import *
 
-def limit_to_twenty(spark: SparkSession, in0: DataFrame) -> DataFrame:
-    return in0.limit(1000)
+def no_operation(spark: SparkSession, in0: DataFrame) -> DataFrame:
+    return in0

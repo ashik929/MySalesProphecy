@@ -8,9 +8,10 @@ from data_ingestion.graph import *
 
 def pipeline(spark: SparkSession) -> None:
     df_sample1 = sample1(spark)
-    df_DynamicSelect_1 = DynamicSelect_1(spark)
     df_bronze_big_mart_1 = bronze_big_mart_1(spark)
     df_rename_item_type = rename_item_type(spark, df_bronze_big_mart_1)
+    df_silver_customers = silver_customers(spark)
+    df_dynamic_column_selection = dynamic_column_selection(spark, df_silver_customers)
     df_silver_products = silver_products(spark)
     df_normalize_account_schema = normalize_account_schema(spark, df_sample1)
     df_silver_orders = silver_orders(spark)
@@ -21,12 +22,14 @@ def pipeline(spark: SparkSession) -> None:
     df_select_product_details = select_product_details(spark, df_silver_products)
     df_remove_duplicate_products = remove_duplicate_products(spark, df_select_product_details)
     df_filter_non_null_categories = filter_non_null_categories(spark, df_remove_duplicate_products)
-    df_limit_to_four = limit_to_four(spark, df_normalize_account_schema)
+    df_no_operation = no_operation(spark, df_filter_non_null_categories)
     df_replace_item_type_spaces = replace_item_type_spaces(spark, df_rename_item_type)
     df_sample_random_rows = sample_random_rows(spark, df_replace_item_type_spaces)
+    df_remove_empty_columns = remove_empty_columns(spark, df_sample_random_rows)
+    df_no_op_transformation = no_op_transformation(spark, df_remove_empty_columns)
+    df_limit_to_four = limit_to_four(spark, df_normalize_account_schema)
     df_limit_to_twenty = limit_to_twenty(spark, df_sort_by_total_amount)
     df_restructure_order_data = restructure_order_data(spark, df_limit_to_twenty)
-    df_silver_customers = silver_customers(spark)
 
 def main():
     spark = SparkSession.builder.enableHiveSupport().appName("Data_ingestion").getOrCreate()

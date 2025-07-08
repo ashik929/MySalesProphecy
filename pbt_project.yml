@@ -29,6 +29,19 @@ pipelines:
       outputs: []
     subgraphs: []
     dependencies: {}
+  pipelines/Join:
+    name: Join
+    description: ''
+    author: ashikchavan2900@gmail.com
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-07-08 17:12:34'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/ds_source:
     name: ds_source
