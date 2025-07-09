@@ -1,0 +1,219 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.10.2",
+        "pyPiVersion" : "1.9.49"
+      },
+      "sparkConfigJinjaEnabled" : true
+    },
+    "id" : "1",
+    "uri" : "pipelines/customeGEM",
+    "sourceSuggestions" : [ ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "customeGEM",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true,
+      "sparkConfigOptions" : {
+        "disableSparkCreationTimeConfigGeneration" : true
+      }
+    },
+    "language" : "python",
+    "fabricId" : "30045",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "ashikchavan2900gmailcomteam.salesproject.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ {
+      "name" : "spark.default.parallelism",
+      "value" : "4"
+    }, {
+      "name" : "spark.sql.legacy.allowUntypedScalaUDF",
+      "value" : "true"
+    } ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "customegem",
+    "configTopLevelPackage" : "customegem",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "JwAkf7_jcjxnRK-0tePgA$$gBL0VX__B6grNnwKAw98Q",
+    "source" : "e9Kc7xsV9O0EPrlsOVOte$$LQ7RundcXi4CGrEbiwZep",
+    "sourcePort" : "68m9L9yZY_RqZ3qL5FrsR$$CBVlB7Hkr36ZlzkVOiBpS",
+    "target" : "-fzXEGi6msOFei5rIRXiT$$AG0wMH6NjF140zWIY6Itt",
+    "targetPort" : "kkUK4psb8CYtFA0JcYQBo$$G_VAsWKknw6SR7qL6B-k1"
+  } ],
+  "processes" : {
+    "-fzXEGi6msOFei5rIRXiT$$AG0wMH6NjF140zWIY6Itt" : {
+      "id" : "-fzXEGi6msOFei5rIRXiT$$AG0wMH6NjF140zWIY6Itt",
+      "component" : "IF_else_dynamic",
+      "metadata" : {
+        "label" : "IF_else_dynamic_0",
+        "slug" : "IF_else_dynamic_0",
+        "x" : -280,
+        "y" : -20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "kkUK4psb8CYtFA0JcYQBo$$G_VAsWKknw6SR7qL6B-k1",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "region_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each region",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "region",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the geographical region",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "_rescued_data",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Data that has been recovered or salvaged for the region",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "xZySzzBT-HcV0yhAbmFRe$$acs5a2G-fJxMzS5Kl8k_a",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "condition_expr" : "price > 100",
+        "true_value" : "'High'",
+        "false_value" : "'Low'",
+        "output_column" : "price_flag"
+      },
+      "componentInfo" : {
+        "gemId" : "gems/IF_else_dynamic",
+        "projectName" : "Sales_Project"
+      }
+    },
+    "e9Kc7xsV9O0EPrlsOVOte$$LQ7RundcXi4CGrEbiwZep" : {
+      "id" : "e9Kc7xsV9O0EPrlsOVOte$$LQ7RundcXi4CGrEbiwZep",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "silver_region",
+        "slug" : "silver_region",
+        "x" : -440,
+        "y" : -20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "68m9L9yZY_RqZ3qL5FrsR$$CBVlB7Hkr36ZlzkVOiBpS",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/silver_region"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.-fzXEGi6msOFei5rIRXiT$$AG0wMH6NjF140zWIY6Itt",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Error occurred while doing Schema Analysis: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `price` cannot be resolved. Did you mean one of the following? [`region`, `region_id`, `_rescued_data`].; line 1 pos 0;\n'Project [region_id#2011, region#2012, _rescued_data#2013, CASE WHEN ('price > 100) THEN 'High ELSE 'Low END AS price_flag#2017]\n+- LogicalRDD [region_id#2011, region#2012, _rescued_data#2013], false\n",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
+}

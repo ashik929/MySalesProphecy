@@ -44,6 +44,33 @@ pipelines:
       outputs: []
     subgraphs: []
     dependencies: {}
+  pipelines/AI_used_automatic:
+    name: AI_used_automatic
+    description: ''
+    author: ashikchavan2900@gmail.com
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-07-08 17:33:19'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+  pipelines/customeGEM:
+    name: customeGEM
+    description: ''
+    author: ashikchavan2900@gmail.com
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-07-08 17:50:54'
+    datasets:
+      inputs:
+      - datasets/silver_region
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/ds_source:
     name: ds_source
@@ -162,12 +189,37 @@ datasets:
         description: ''
         author: ashikchavan2900@gmail.com
         createdAt: '2025-07-08 17:16:54'
+  datasets/silver_region:
+    name: silver_region
+    description: ''
+    author: ashikchavan2900@gmail.com
+    createdAt: '2025-07-08 17:51:56'
+    mode: batch
+    physicalDatasets:
+      Development:
+        fabricId: 30045
+        datasetType: Database
+        description: ''
+        author: ashikchavan2900@gmail.com
+        createdAt: '2025-07-08 17:51:56'
 templates: {}
 jobs: {}
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0
-  gems: {}
+  gems:
+    gems/IF_else_dynamic:
+      name: IF_else_dynamic
+      category: Transform
+      subCategory: ''
+      description: null
+      author: ashikchavan2900@gmail.com
+      mode: batch
+      files:
+      - ashikchavan2900gmailcomteam_salesproject/gems/if_else.py
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2025-07-08 18:04:31'
   dependencies: null
 functions:
   author: null
